@@ -5,26 +5,45 @@
 'use strict';
 const tmtabs = 6;
 let numTabs = 0;
+let numWindows = 0;
 
-chrome.windows.onCreated.addListener(function(){
-  numTabs++;
-  console.log(numTabs);
+chrome.runtime.onStartup.addListener(() => {
+  console.log('startup');
 });
 
+chrome.windows.onCreated.addListener(function () {
+  // numWindows++;
+  console.log('fired windows created');
+  // countTabsAndWindows();
+});
+
+chrome.tabs.onCreated.addListener(function () {
+  console.log('fired tabs created');
+  countTabsAndWindows();
+});
+
+function countTabsAndWindows() {
+  chrome.windows.getAll({ populate: true, windowTypes: ['normal'] }, windows => {
+    numWindows = windows.length;
+    numTabs = 0;
+    windows.forEach(win => {
+      
+      numTabs += win.tabs.length;
+    });
+    console.log(`numWindows ${numWindows}`);
+    console.log(`number of tabs ${numTabs}`);
+    if (numTabs > tmtabs) {
+      //   chrome.notifications.create(options, function (){});
+      // }
+    }
+  });
+}
 // chrome.runtime.onInstalled.addListener(function() {
 //   chrome.storage.sync.set({tmtabs: tmtabs}, function() {
 //     console.log(`The default tmtabs value is ${tmtabs}`);
 //   });
 //   let numOfTabs = 1;
 //   let options = {type:'basic', title:'to many tabs', message:'tooo many',iconUrl:'icon.png'};
-//   chrome.tabs.onCreated.addListener(function(){
-//     numOfTabs++;
-//     console.log(`new tab ${numOfTabs}`);
-//     if(numOfTabs > tmtabs ){
-
-//       chrome.notifications.create(options, function (){});
-//     }
-//   });
 //   chrome.tabs.onRemoved.addListener(function (){
 //     numOfTabs--;
 //     console.log(`removed tab ${numOfTabs}`);
