@@ -3,13 +3,12 @@ module.exports = {
       'unobtrusive',
       'eslint:recommended'
         ],
-    plugins: ['jest'],
     env: {
       browser: true,
       node: true,
-      'jest/globals': true
     },
     globals: {
+      chrome:true
     },
     rules: {
       semi: [2, 'always'],

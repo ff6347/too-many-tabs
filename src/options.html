@@ -1,20 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!--
+        The above 2 meta tags *must* come first in the <head>
+        to consistently ensure proper document rendering.
+        Any other head element should come *after* these tags.
+       -->
+      <title>To Many Tabs Options</title>
     <style>
-      button {
-        height: 30px;
-        width: 30px;
-        outline: none;
-        margin: 10px;
-      }
+      input:invalid + span:after {
+    content: '✖';
+    color: #f00;
+    padding-left: 5px;
+}
+
+input:valid + span:after {
+    content: '✓';
+    color: #26b72b;
+    padding-left: 5px;
+}
+
     </style>
   </head>
   <body>
-    <div id="buttonDiv">
-    </div>
-    <div>
-      <p>Choose a different background color!</p>
+    <div class="wrappppper">
+      <form action="">
+        <fieldset>
+          <legend>To Many Tabs Options</legend>
+          <div>
+            <label for="maxtabs">Maximum Number of Tabs:</label>
+            <input id="max-value" type="number" step="1" min="1" max="99999999" /><span class="validity"></span>
+          </div>
+        </fieldset>
+      </form>
     </div>
   </body>
   <script src="options.js"></script>

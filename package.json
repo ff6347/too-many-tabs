@@ -4,12 +4,14 @@
   "description": "",
   "main": "popup.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "icons":"node ./bin/icon.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "chrome-manifest-iconify": "^3.0.7",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.1.0",
     "eslint-config-unobtrusive": "^1.2.2"

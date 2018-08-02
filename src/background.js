@@ -1,11 +1,12 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+chrome.runtime.onInstalled.addListener(function() {
+  chrome.storage.sync.set({tmtabs: 9}, function() {
+    console.log(`The default tmtabs value is ${9}`);
+  });
+});
 
-'use strict';
-const tmtabs = 6;
-let numTabs = 0;
-let numWindows = 0;
+// let tmtabs = null;
+// let numTabs = 0;
+// let numWindows = 0;
 
 chrome.runtime.onStartup.addListener(() => {
   console.log('startup');
@@ -16,37 +17,41 @@ chrome.windows.onCreated.addListener(function () {
   console.log('fired windows created');
   // countTabsAndWindows();
 });
+chrome.tabs.onRemoved.addListener(function (){
+  console.log('fired remove tabs');
+  countTabsAndWindows();
+  // numOfTabs--;
+});
 
-chrome.tabs.onCreated.addListener(function () {
+chrome.tabs.onCreated.addListener(() => {
   console.log('fired tabs created');
   countTabsAndWindows();
 });
 
 function countTabsAndWindows() {
   chrome.windows.getAll({ populate: true, windowTypes: ['normal'] }, windows => {
-    numWindows = windows.length;
-    numTabs = 0;
+    // numWindows = windows.length;
+    let numTabs = 0;
     windows.forEach(win => {
-      
+
       numTabs += win.tabs.length;
     });
-    console.log(`numWindows ${numWindows}`);
-    console.log(`number of tabs ${numTabs}`);
-    if (numTabs > tmtabs) {
-      //   chrome.notifications.create(options, function (){});
-      // }
-    }
+    // console.log(`numWindows ${numWindows}`);
+    // console.log(`number of tabs ${numTabs}`);
+    chrome.storage.sync.get('tmtabs', function(data) {
+      console.log(data);
+      if (numTabs > data.tmtabs) {
+        let msg = `${numTabs} is ${numTabs - data.tmtabs} tooooo many`;
+        let options = {type:'basic', title:'to many tabs', message: msg,iconUrl:'icon.png'};
+        chrome.notifications.create(options, function (){});
+
+        chrome.storage.sync.set({message: msg}, function() {
+        });
+      } else {
+        chrome.storage.sync.set({message: `Awesome. Such a self control. Only ${numTabs} tabs.`}, function() {
+        });
+      }
+    });
   });
 }
-// chrome.runtime.onInstalled.addListener(function() {
-//   chrome.storage.sync.set({tmtabs: tmtabs}, function() {
-//     console.log(`The default tmtabs value is ${tmtabs}`);
-//   });
-//   let numOfTabs = 1;
-//   let options = {type:'basic', title:'to many tabs', message:'tooo many',iconUrl:'icon.png'};
-//   chrome.tabs.onRemoved.addListener(function (){
-//     numOfTabs--;
-//     console.log(`removed tab ${numOfTabs}`);
-//   });
 
-// });
