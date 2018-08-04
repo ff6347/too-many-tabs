@@ -7,10 +7,23 @@
       body{
         min-width: 300px;
       }
+      h1{
+        font-size: 1.4em;
+      }
+        .flex-wrapper{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .flex-item{
+          align-self: center;
+          /* text-align: center;  */
+        }
     </style>
   </head>
   <body>
-    <h1 id="headline">You have to many tabs!</h1>
-    <!-- <h2 id="num">n</h2> -->
+    <div class="flex-wrapper">
+      <h1 class="flex-item" id="headline">You have to many tabs!</h1>
+    </div>
   </body>
 </html>

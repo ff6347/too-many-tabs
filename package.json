@@ -1,11 +1,11 @@
 {
-  "name": "@ixds/to-many-tabs",
+  "name": "to-many-tabs",
   "version": "1.0.0",
   "description": "",
   "main": "popup.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "icons":"node ./bin/icon.js"
+    "icons": "node ./bin/icon.js"
   },
   "keywords": [],
   "author": "",

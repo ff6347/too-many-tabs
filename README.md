@@ -1,5 +1,5 @@
- https://developer.chrome.com/extensions/getstarted
+To Many Tabs
+============
 
-Change the Chrome extension icon - Stack Overflow https://stackoverflow.com/questions/16921685/change-the-chrome-extension-icon
+Do you tend to open tab after tab after tab end end up with hundreds of them? Not any more. This little nagging extension will remind you when you have more then your desired number (defaults to 9) of tabs open. Get some self control and reduce your  CPU load.
 
-chrome.notifications - Google Chrome https://developer.chrome.com/apps/notifications
