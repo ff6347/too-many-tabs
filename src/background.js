@@ -1,6 +1,6 @@
 chrome.runtime.onInstalled.addListener(function() {
   chrome.storage.sync.set({tmtabs: 9}, function() {
-    console.log(`The default tmtabs value is ${9}`);
+    // console.log(`The default tmtabs value is ${9}`);
   });
 });
 
@@ -9,22 +9,22 @@ chrome.runtime.onInstalled.addListener(function() {
 // let numWindows = 0;
 
 chrome.runtime.onStartup.addListener(() => {
-  console.log('startup');
+  // console.log('startup');
 });
 
 chrome.windows.onCreated.addListener(function () {
   // numWindows++;
-  console.log('fired windows created');
+  // console.log('fired windows created');
   // countTabsAndWindows();
 });
 chrome.tabs.onRemoved.addListener(function (){
-  console.log('fired remove tabs');
+  // console.log('fired remove tabs');
   countTabsAndWindows();
   // numOfTabs--;
 });
 
 chrome.tabs.onCreated.addListener(() => {
-  console.log('fired tabs created');
+  // console.log('fired tabs created');
   countTabsAndWindows();
 });
 
@@ -33,13 +33,13 @@ function countTabsAndWindows() {
     // numWindows = windows.length;
     let numTabs = 0;
     windows.forEach(win => {
-      console.log(win.session)
+      // console.log(win.session)
       numTabs += win.tabs.length;
     });
-    // console.log(`numWindows ${numWindows}`);
-    // console.log(`number of tabs ${numTabs}`);
+    // // console.log(`numWindows ${numWindows}`);
+    // // console.log(`number of tabs ${numTabs}`);
     chrome.storage.sync.get('tmtabs', function(data) {
-      console.log(data);
+      // console.log(data);
       if (numTabs > data.tmtabs) {
         let msg = `${numTabs} is ${numTabs - data.tmtabs} tooo many!`;
         let options = {
@@ -53,7 +53,7 @@ function countTabsAndWindows() {
         chrome.storage.sync.set({message: msg}, function() {
         });
       } else {
-        chrome.storage.sync.set({message: `Such a self control!<br>Only ${numTabs} tabs. You rock! 🤘🏽`}, function() {
+        chrome.storage.sync.set({message: `Such a self control!\nOnly ${numTabs} tabs. You rock! 🤘🏽`}, function() {
         });
       }
     });

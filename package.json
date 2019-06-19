@@ -5,7 +5,11 @@
   "main": "popup.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "icons": "node ./bin/icon.js"
+    "icons": "node ./bin/icon.js",
+    "dev:ff": "web-ext run -s ./src",
+    "build:ff": "web-ext build -s ./src",
+    "clean:ff": "rm web-ext-artifacts/too_many_tabs-*.zip"
+
   },
   "keywords": [],
   "author": "",
@@ -14,7 +18,8 @@
     "chrome-manifest-iconify": "^3.0.7",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.1.0",
-    "eslint-config-unobtrusive": "^1.2.2"
+    "eslint-config-unobtrusive": "^1.2.2",
+    "web-ext": "^3.0.0"
   },
   "config": {
     "commitizen": {

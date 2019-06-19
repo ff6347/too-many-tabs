@@ -1,4 +1,10 @@
 {
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "to-many-tabs@fabianmoronzirfas.me",
+      "strict_min_version": "57.0"
+    }
+  },
   "manifest_version": 2,
   "name": "Too Many Tabs",
   "short_name":"2ManyTabs",
@@ -23,7 +29,10 @@
     ],
     "persistent": false
   },
-  "options_page": "options.html",
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
+  },
   "permissions": [
     "activeTab",
     "tabs",
