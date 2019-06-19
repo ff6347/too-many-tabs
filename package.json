@@ -1,6 +1,6 @@
 {
   "name": "too-many-tabs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "popup.js",
   "scripts": {
@@ -9,15 +9,14 @@
     "dev:ff": "web-ext run -s ./src",
     "build:ff": "web-ext build -s ./src",
     "clean:ff": "rm web-ext-artifacts/too_many_tabs-*.zip"
-
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "chrome-manifest-iconify": "^3.0.7",
     "cz-conventional-changelog": "^2.1.0",
-    "eslint": "^5.1.0",
+    "eslint": "^5.16.0",
     "eslint-config-unobtrusive": "^1.2.2",
     "web-ext": "^3.0.0"
   },
