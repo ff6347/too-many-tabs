@@ -14,11 +14,11 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "chrome-manifest-iconify": "3.0.7",
-    "cz-conventional-changelog": "2.1.0",
-    "eslint": "5.16.0",
+    "chrome-manifest-iconify": "5.0.2",
+    "cz-conventional-changelog": "3.2.0",
+    "eslint": "7.5.0",
     "eslint-config-unobtrusive": "1.2.5",
-    "web-ext": "3.2.1"
+    "web-ext": "4.3.0"
   },
   "config": {
     "commitizen": {
