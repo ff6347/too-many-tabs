@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "icons": "node ./bin/icon.js",
-    "dev:ff": "web-ext run -s ./src",
-    "build:ff": "web-ext build -s ./src",
+    "dev:ff": "web-ext run -v -s ./src",
+    "build:ff": "web-ext build --overwrite-dest -s ./src",
     "clean:ff": "rm web-ext-artifacts/too_many_tabs-*.zip"
   },
   "keywords": [],

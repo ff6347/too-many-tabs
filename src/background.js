@@ -1,5 +1,6 @@
-chrome.runtime.onInstalled.addListener(function() {
-  chrome.storage.sync.set({tmtabs: 9}, function() {
+/* eslint-disable no-dupe-else-if */
+chrome.runtime.onInstalled.addListener(function () {
+  chrome.storage.sync.set({ tmtabs: 9 }, function () {
     // console.log(`The default tmtabs value is ${9}`);
   });
 });
@@ -9,7 +10,7 @@ chrome.runtime.onInstalled.addListener(function() {
 // let numWindows = 0;
 
 chrome.runtime.onStartup.addListener(() => {
-  // console.log('startup');
+  console.log("startup");
 });
 
 chrome.windows.onCreated.addListener(function () {
@@ -17,7 +18,7 @@ chrome.windows.onCreated.addListener(function () {
   // console.log('fired windows created');
   // countTabsAndWindows();
 });
-chrome.tabs.onRemoved.addListener(function (){
+chrome.tabs.onRemoved.addListener(function () {
   // console.log('fired remove tabs');
   countTabsAndWindows();
   // numOfTabs--;
@@ -29,34 +30,38 @@ chrome.tabs.onCreated.addListener(() => {
 });
 
 function countTabsAndWindows() {
-  chrome.windows.getAll({ populate: true, windowTypes: ['normal'] }, windows => {
-    // numWindows = windows.length;
-    let numTabs = 0;
-    windows.forEach(win => {
-      // console.log(win.session)
-      numTabs += win.tabs.length;
-    });
-    // // console.log(`numWindows ${numWindows}`);
-    // // console.log(`number of tabs ${numTabs}`);
-    chrome.storage.sync.get('tmtabs', function(data) {
-      // console.log(data);
-      if (numTabs > data.tmtabs) {
-        let msg = `${numTabs} is ${numTabs - data.tmtabs} tooo many!`;
-        let options = {
-          type:'basic',
-          title:'to many tabs',
-          message: msg,
-          iconUrl:'icon128.png'
-        };
-        chrome.notifications.create(options, function (){});
+  chrome.windows.getAll(
+    { populate: true, windowTypes: ["normal"] },
+    (windows) => {
+      // numWindows = windows.length;
+      let numTabs = 0;
+      windows.forEach((win) => {
+        numTabs += win.tabs.length;
+      });
+      // // console.log(`numWindows ${numWindows}`);
+      // // console.log(`number of tabs ${numTabs}`);
+      chrome.storage.sync.get("tmtabs", function (data) {
+        // console.log(data);
+        if (numTabs > data.tmtabs) {
+          let msg = `${numTabs} is ${numTabs - data.tmtabs} tooo many!`;
+          let options = {
+            type: "basic",
+            title: "to many tabs",
+            message: msg,
+            iconUrl: "icon128.png",
+          };
+          chrome.notifications.create(options, function () {});
 
-        chrome.storage.sync.set({message: msg}, function() {
-        });
-      } else {
-        chrome.storage.sync.set({message: `Such a self control!\nOnly ${numTabs} tabs. You rock! 🤘🏽`}, function() {
-        });
-      }
-    });
-  });
+          chrome.storage.sync.set({ message: msg }, function () {});
+        } else {
+          chrome.storage.sync.set(
+            {
+              message: `Such a self control!\nOnly ${numTabs} tabs. You rock! 🤘🏽`,
+            },
+            function () {}
+          );
+        }
+      });
+    }
+  );
 }
-
