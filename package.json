@@ -18,7 +18,7 @@
     "cz-conventional-changelog": "3.2.0",
     "eslint": "7.5.0",
     "eslint-config-unobtrusive": "1.2.5",
-    "web-ext": "5.0.0"
+    "web-ext": "5.5.0"
   },
   "config": {
     "commitizen": {
