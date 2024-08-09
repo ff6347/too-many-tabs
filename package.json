@@ -16,9 +16,9 @@
   "devDependencies": {
     "chrome-manifest-iconify": "5.0.2",
     "cz-conventional-changelog": "3.2.0",
-    "eslint": "7.5.0",
+    "eslint": "9.9.0",
     "eslint-config-unobtrusive": "1.2.5",
-    "web-ext": "5.0.0"
+    "web-ext": "8.2.0"
   },
   "config": {
     "commitizen": {
