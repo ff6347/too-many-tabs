@@ -1,29 +1,34 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Too Many Tabs</title>
-    <script src="popup.js"></script>
-    <style>
-      body{
-        min-width: 300px;
-      }
-      h1{
-        font-size: 1.4em;
-      }
-        .flex-wrapper{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        .flex-item{
-          align-self: center;
-          /* text-align: center;  */
-        }
-    </style>
-  </head>
-  <body>
-    <div class="flex-wrapper">
-      <h1 class="flex-item" id="headline">You have to many tabs!</h1>
-    </div>
-  </body>
+	<head>
+		<title>Too Many Tabs</title>
+		<script type="module" src="vendor/browser-polyfill.min.js"></script>
+		<script src="popup.js"></script>
+		<style>
+			* {
+				font-family: system-ui, sans-serif;
+				font-weight: normal;
+			}
+			body {
+				min-width: 300px;
+			}
+			h1 {
+				font-size: 1.4em;
+			}
+			.flex-wrapper {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.flex-item {
+				align-self: center;
+				/* text-align: center;  */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="flex-wrapper">
+			<h1 class="flex-item" id="headline">You have to many tabs!</h1>
+		</div>
+	</body>
 </html>
