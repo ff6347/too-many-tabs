@@ -9,7 +9,7 @@
 	"name": "Too Many Tabs",
 	"short_name": "2ManyTabs",
 	"description": "This extension will notify you when you have more then n tabs open",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"author": "Fabian Morón Zirfas",
 	"icons": {
 		"16": "icon16.png",
