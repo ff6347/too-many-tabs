@@ -1,42 +1,35 @@
 {
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "to-many-tabs@fabianmoronzirfas.me",
-      "strict_min_version": "57.0"
-    }
-  },
-  "manifest_version": 2,
-  "name": "Too Many Tabs",
-  "short_name":"2ManyTabs",
-  "description": "This extension will notify you when you have more then n tabs open",
-  "version": "1.0.2",
-  "author": "Fabian Morón Zirfas",
-  "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
-  },
-  "browser_action": {
-    "default_icon": {
-      "19": "icon19.png",
-      "38": "icon38.png"
-    },
-    "default_popup": "popup.html"
-  },
-  "background": {
-    "scripts": [
-      "background.js"
-    ],
-    "persistent": false
-  },
-  "options_ui": {
-    "page": "options.html",
-    "browser_style": true
-  },
-  "permissions": [
-    "activeTab",
-    "tabs",
-    "storage",
-    "notifications"
-  ]
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "to-many-tabs@fabianmoronzirfas.me",
+			"strict_min_version": "57.0"
+		}
+	},
+	"manifest_version": 2,
+	"name": "Too Many Tabs",
+	"short_name": "2ManyTabs",
+	"description": "This extension will notify you when you have more then n tabs open",
+	"version": "1.0.2",
+	"author": "Fabian Morón Zirfas",
+	"icons": {
+		"16": "icon16.png",
+		"48": "icon48.png",
+		"128": "icon128.png"
+	},
+	"browser_action": {
+		"default_icon": {
+			"19": "icon19.png",
+			"38": "icon38.png"
+		},
+		"default_popup": "popup.html"
+	},
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+	"options_ui": {
+		"page": "options.html",
+		"browser_style": true
+	},
+	"permissions": ["activeTab", "tabs", "storage", "notifications"]
 }
